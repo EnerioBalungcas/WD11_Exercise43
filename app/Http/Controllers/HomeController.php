@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::id();
+        $contact = DB::table('contacts')
+        ->simplePaginate(1)
+        ->get();
+        $message = DB::table('messages')
+        ->where ('user_id', '=', $user)
+        ->get();
+        $data=[
+            'contacts' =>$contact,
+            'message' =>$message
+        ];
+        return view('home')->with($data);
+        // $user = Auth::id();
+        // $message = DB::table('messages')
+        // ->where ('user_id', '=', $user)
+        // ->get();
+        // return view('home')->with('message', $message);
     }
 }

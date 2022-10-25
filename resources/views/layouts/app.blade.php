@@ -12,12 +12,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link href="{{secure_asset('build/assets/app.css)}} rel="stylesheet">
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <!--script-->
     <link href="{{asset('build/assets/app.css')}}" rel="stylesheet">
-    <script src="{{secure_asset('build/assets/app.css)}}"></script>
+    <!-- Scripts -->
+    /*  @vite(['resources/sass/app.scss', 'resources/js/app.js']) */
+    <!--script-->
+    <link href="{{secure_asset('build/assets/app.css')}}" rel="stylesheet">
+    <script src="{{secure_asset('build/assets/app.css')}}"></script>
 </head>
 <body>
     <div id="app">
@@ -55,6 +55,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
+                                    {{ Auth::user()->id }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -74,7 +75,7 @@
                 </div>
             </div>
         </nav>
-        <script src="{{secure_asset('build/assets/app.css)}}"></script>
+        <script src="{{secure_asset('build/assets/app.css')}}"></script>
         <main class="py-4">
             @yield('content')
         </main>

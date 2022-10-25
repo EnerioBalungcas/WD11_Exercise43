@@ -7,7 +7,7 @@
     <title>Document</title>
     {{-- <title>{{config('app.name', 'Default Value')}}</title> --}}
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('build/assets/app.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('build/assets/app.css')}}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
